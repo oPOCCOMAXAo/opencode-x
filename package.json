@@ -1,0 +1,39 @@
+{
+  "name": "opencode-x",
+  "version": "0.1.0",
+  "description": "A minimal OpenCode V2 plugin.",
+  "type": "module",
+  "packageManager": "npm@11.16.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ./node_modules/@typescript/native/bin/tsc -p tsconfig.json",
+    "dev": "node ./node_modules/@typescript/native/bin/tsc -p tsconfig.json --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "typecheck": "node ./node_modules/@typescript/native/bin/tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.0.26"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "^26.6.5",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "eslint": "10.12.0",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
+    "typescript-eslint": "8.71.1"
+  }
+}
