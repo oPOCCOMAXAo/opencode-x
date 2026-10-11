@@ -16,12 +16,14 @@ npm run build
 ```
 
 Edit `src/index.ts`. Use `npm run dev` to build when files change.
-The build writes JavaScript and type declarations to `dist/`.
+The build writes only `dist/index.js` and `dist/index.d.ts`.
 
 Use `npm run lint:fix` to fix lint errors. Use `npm run format` to format project files.
-The build uses TypeScript 7.0.2 through the `@typescript/native` package alias.
-The scripts select this compiler directly because the TypeScript 6 package also supplies `tsc`.
-ESLint uses the TypeScript 6 API through the `typescript` package alias.
+The build checks types with TypeScript 7.0.2 through the `@typescript/native` package alias.
+The typecheck script selects this compiler directly because TypeScript 6 also supplies `tsc`.
+tsup bundles local modules and generates type declarations. Node.js modules and
+`@opencode/plugin` remain external.
+ESLint and declaration generation use TypeScript 6 through the `typescript` package alias.
 The `package-lock.json` file fixes the dependency versions for `npm ci`.
 
 ## Load in OpenCode
